@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="./node_modules/vue/dist/vue.min.js"></script>
+	<title>Document</title>
+	<script>
+		window.addEventListener("DOMContentLoaded", function() {
+		var app = new Vue({
+			el: "#exercice_1",
+
+            data : {
+                titre : "VueJS : TP Variables",
+                nom : "MSADDAK",
+                prenom : "Mohamed",
+                age : 22 ,
+                nb: 0,
+
+                img : {
+                    src : "./star.jpg",
+                    heigth: "200px",
+                    width : "200px",
+                },
+                cherche : "",
+                usa : [
+                        {nom: "Alabama"},
+                        {nom: "Alaska"},
+                        {nom: "Arizona"},
+                        {nom: "Arkansas"},
+                        {nom: "Californie"},
+                        {nom: "Caroline du Nord"},
+                        {nom: "Caroline du Sud"},
+                        {nom: "Colorado"},
+                        {nom: "Connecticut"},
+                        {nom: "Dakota du Nord"},
+                        {nom: "Dakota du Sud"},
+                        {nom: "Delaware"},
+                        {nom: "Floride"},
+                        {nom: "Georgie"},
+                        {nom: "Hawaii"},
+                        {nom: "Idaho"},
+                        {nom: "Illinois"},
+                        {nom: "Indiana"},
+                        {nom: "Iowa"},
+                        {nom: "Kansas"},
+                        {nom: "Kentucky"},
+                        {nom: "Louisiane"},
+                        {nom: "Maine"},
+                        {nom: "Maryland"},
+                        {nom: "Massachusetts"},
+                        {nom: "Michigan"},
+                        {nom: "Minnesota"},
+                        {nom: "Mississippi"},
+                        {nom: "Missouri"},
+                        {nom: "Montana"},
+                        {nom: "Nebraska"},
+                        {nom: "Nevada"},
+                        {nom: "New Hampshire"},
+                        {nom: "New Jersey"},
+                        {nom: "New York"},
+                        {nom: "Nouveau"},
+                        {nom: "Ohio"},
+                        {nom: "Oklahoma"},
+                        {nom: "Oregon"},
+                        {nom: "Pennsylvanie"},
+                        {nom: "Rhode Island"},
+                        {nom: "Tennessee"},
+                        {nom: "Texas"},
+                        {nom: "Utah"},
+                        {nom: "Vermont"},
+                        {nom: "Virginie"},
+                        {nom: "Virginie-Occidentale"},
+                        {nom: "Washington"},
+                        {nom: "Wisconsin"},
+                        {nom: "Wyoming"}
+                    ],
+
+            },
+            methods : {
+                random : function() {
+                return this.nb = Math.random();
+            },
+                filter: function() {
+                    // var thisS = this;
+                    console.log(this.cherche);
+                    return this.usa.filter(function(obj){
+                        console.log(name);
+                        return obj.nom.toLowerCase().indexOf(this.cherche.toLowerCase()) !== -1;
+                    }, this);
+
+                }
+
+
+
+
+            },
+		});
+		})
+	</script>
+</head>
+<body>
+	<div id="exercice_1">
+		<h1 class="title">VueJS : TP Variables</h1>
+        <h2 class="title">{{ titre }}</h2>
+        <p>{{nom}}</p>
+        <p>{{prenom}}</p>
+        <p>{{age * 3}}</p>
+        <p>{{random()}}</p>
+        <img v-bind:src="img.src" v-bind:height="img.height" v-bind:width="img.width" alt="">
+        <input type="text" v-bind:value="prenom">
+
+	<!-- 0/ Afficher le titre de la page en utilisant l'interpolation de châine -->
+	<!-- 1/ Remplir un <p> avec vos nom et âge en utilisant l'interpolation de chaîne -->
+	<!-- 2/ Afficher votre âge multiplié par 3 -->
+	<!-- 3/ Appeler une fonction pour afficher un nombre compris entre 0 et 1 -->
+	<!-- 4/ Afficher une image de votre choix en utilisant un bind sur l'attribut "src" -->
+	<!-- 5/ Remplir un input texte avec votre en bindant sur l'attribut "value" -->
+    <div class="exercice_2">
+        <p>{{filter()}}</p>
+        <input type="text"  v-model="cherche">
+        <ul>
+      <li v-for="name in usa">
+            {{ name.nom }}
+      </li>
+    </ul>
+	</div>
+
+		<!-- Dans un composant Vue, lister les états des Etats-Unis d'Amérique -->
+		<!-- Implanter un input texte : à chaque event input dans ce champs, filtrer les états correspondants à la sasie -->
+	</div>
+</body>
+</html>
